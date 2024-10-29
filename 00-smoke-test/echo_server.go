@@ -7,6 +7,7 @@ import (
 )
 
 var CHUNK_SIZE = 1024
+var port = "7"
 
 func handleConnection(conn net.Conn) {
 	defer conn.Close()
@@ -28,7 +29,7 @@ func handleConnection(conn net.Conn) {
 	}
 
 	data = data[:n]
-	fmt.Printf("%d bytes read: %s\n", n, string(data))
+	fmt.Printf("%d bytes read\n", n)
 
 	n, err := conn.Write(data)
 	if err != nil {
@@ -41,7 +42,7 @@ func handleConnection(conn net.Conn) {
 func main() {
 
 	fmt.Println("Server starting ...")
-	listener, err := net.Listen("tcp", ":80")
+	listener, err := net.Listen("tcp", ":"+port)
 	if err != nil {
 		log.Fatal(err)
 	}

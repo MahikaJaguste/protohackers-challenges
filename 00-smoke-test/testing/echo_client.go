@@ -7,7 +7,7 @@ import (
 	"sync"
 )
 
-var address = "127.0.0.1:80"
+var address = "127.0.0.1:7"
 
 func testConnection(threadId int) {
 	conn, err := net.Dial("tcp", address)
