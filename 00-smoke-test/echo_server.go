@@ -7,7 +7,7 @@ import (
 )
 
 var CHUNK_SIZE = 1024
-var port = "7"
+var port = "80"
 
 func handleConnection(conn net.Conn) {
 	defer conn.Close()
